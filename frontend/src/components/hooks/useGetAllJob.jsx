@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux"
 
 const useGetAllJob = () => {
   const dispatch=useDispatch()
-const [jobs, setjobs] = useState([])
+
 useEffect(() => {
   const fetchData=async ()=>{
   try {
@@ -17,9 +17,7 @@ useEffect(() => {
       if(res.data.success){
           dispatch(setAlljobs(res.data.jobs))
       }
-      // const JobArray=await res.data.jobs
-      // setjobs(JobArray)
-      // console.log(JobArray)
+     
     } catch (error) {
       console.log(error)
     }
