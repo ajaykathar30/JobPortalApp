@@ -9,9 +9,17 @@ import jobRoute from './routes/job.routes.js'
 import applicationRoute from './routes/application.route.js'
 
 dotenv.config({})
+
+const allowedOrigins=[ 'http://localhost:5173','https://jobportalapp-1.onrender.com']
 const corsOptions = {
-  origin: 'http://localhost:5173',
-  credentials: true
+  origin: function(origin,callback) {
+    if(!origin || allowedOrigins.includes(origin)){
+      callback(null,true)
+    }else{
+      callback(new Error('Not Allowed by CORS'))
+    }
+  },
+  credentials:true
 }
 
 const app = express()
