@@ -16,10 +16,10 @@ const Applicants = () => {
     useEffect(() => {
         const fetchData=async ()=>{
             try {
-                console.log("hi")
+                // console.log("hi")
                 const res=await axios.get(`${APPLICATION_API_END_POINT}/${params.id}/applicants`,{withCredentials:true})
                     if(res.data.success){
-                        console.log("hi2")
+                        // console.log("hi2")
                         dispatch(setAllApplicants(res.data.job))
                         console.log(res.data.job)
 
@@ -37,8 +37,8 @@ const Applicants = () => {
   return (
    <>
    <Navbar/>
-   <div className='max-w-6xl mx-auto my-10 border-1'>
-    <h1 >Applicants List</h1>
+   <div className='max-w-6xl mx-auto my-10 border-1 p-2'>
+    <h1 className='text-4xl font-bold mb-3'>Applicants List</h1>
     <ApplicantsTable/>
    </div>
    </>
